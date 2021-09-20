@@ -7,7 +7,7 @@ public class PartesSerp {
 
     private Bitmap mp;
     private int x,y;
-    private Rect rectCont, rectAb, rectAr, rectDer, rectIzq;
+    private Rect centro, abajo, arriba, ladoder, ladoizq;
 
     public PartesSerp(Bitmap mp, int x, int y) {
         this.mp = mp;
@@ -39,48 +39,48 @@ public class PartesSerp {
         this.y = y;
     }
 
-    public Rect getRectCont() {
+    public Rect getCentro() {
         return new Rect(this.x,this.y, this.x+Interfaz.tamañoFond,
                 this.y+Interfaz.tamañoFond);
     }
 
-    public void setRectCont(Rect rectCont) {
-        this.rectCont = rectCont;
+    public void setCentro(Rect centro) {
+        this.centro = centro;
     }
 
-    public Rect getRectAb() {
+    public Rect getAbajo() {
         return new Rect(this.x,this.y+Interfaz.tamañoFond, this.x+Interfaz.tamañoFond,
                 this.y+Interfaz.tamañoFond+10*ParametrosC.SCREEN_HEIGHT/1920);
     }
 
-    public void setRectAb(Rect rectAb) {
-        this.rectAb = rectAb;
+    public void setAbajo(Rect abajo) {
+        this.abajo = abajo;
     }
 
-    public Rect getRectAr() {
+    public Rect getArriba() {
         return new Rect(this.x,this.y-10*ParametrosC.SCREEN_HEIGHT/1920, this.x+Interfaz.tamañoFond,
                 this.y);
     }
 
-    public void setRectAr(Rect rectAr) {
-        this.rectAr = rectAr;
+    public void setArriba(Rect arriba) {
+        this.arriba = arriba;
     }
 
-    public Rect getRectDer() {
+    public Rect getLadoder() {
         return new Rect(this.x+Interfaz.tamañoFond,this.y, this.x+Interfaz.tamañoFond+10*ParametrosC.SCREEN_WIDTH/1080,
                 this.y+Interfaz.tamañoFond);
     }
 
-    public void setRectDer(Rect rectDer) {
-        this.rectDer = rectDer;
+    public void setLadoder(Rect ladoder) {
+        this.ladoder = ladoder;
     }
 
-    public Rect getRectIzq() {
+    public Rect getLadoizq() {
         return new Rect(this.x-10*ParametrosC.SCREEN_WIDTH/1080,this.y, this.x,
                 this.y+Interfaz.tamañoFond);
     }
 
-    public void setRectIzq(Rect rectIzq) {
-        this.rectIzq = rectIzq;
+    public void setLadoizq(Rect ladoizq) {
+        this.ladoizq = ladoizq;
     }
 }
