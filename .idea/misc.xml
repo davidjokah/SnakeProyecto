@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dhavi/AndroidStudioProjects/SnakeProyecto/app/src/main/res/drawable/custom_button.xml" value="0.16018518518518518" />
+        <entry key="..\:/Users/dhavi/AndroidStudioProjects/SnakeProyecto/app/src/main/res/drawable/ic_baseline_emoji_events_24.xml" value="0.22864583333333333" />
         <entry key="..\:/Users/dhavi/AndroidStudioProjects/SnakeProyecto/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/dhavi/AndroidStudioProjects/SnakeProyecto/app/src/main/res/layout/activity_main2.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/dhavi/AndroidStudioProjects/SnakeProyecto/app/src/main/res/layout/activity_segundo.xml" value="0.18" />
       </map>
     </option>
   </component>

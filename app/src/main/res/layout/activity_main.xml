@@ -6,63 +6,122 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <org.itiud.snakeproyecto.Interfaz
-       android:layout_width="match_parent"
-       android:layout_height="667dp"
-       android:background="#38FF02" />
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="65dp"
-       android:background="#256002"
-       android:alpha="0.8"
-       android:layout_alignParentBottom="true"
-       android:weightSum="2">
-      <RelativeLayout
-          android:layout_width="0dp"
-          android:layout_height="match_parent"
-          android:layout_weight="1">
-         <LinearLayout
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal"
-             android:layout_centerInParent="true">
-            <ImageView
-                android:src="@drawable/Manzana"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:scaleType="fitXY"/>
-            <TextView
-                android:id="@+id/txt_puntaje"
-                android:textColor="#ffffff"
-                android:textSize="30sp"
-                android:text=" x 0"
+    <org.itiud.logica.Interfaz
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/lytBtns"
+        android:layout_below="@id/lytPuntos"
+        android:layout_centerInParent="true" />
+    <LinearLayout
+        android:id="@+id/lytPuntos"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentTop="true"
+        android:background="#FF578A34"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-         </LinearLayout>
-      </RelativeLayout>
-      <RelativeLayout
-          android:layout_width="0dp"
-          android:layout_height="match_parent"
-          android:layout_weight="1">
-         <LinearLayout
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal"
-             android:layout_centerInParent="true">
-            <ImageView
-                android:src="@drawable/ic_baseline_emoji_events_24"
-                app:tint="#FFC107"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:scaleType="fitXY"/>
-            <TextView
-                android:id="@+id/txt_mejor_puntaje"
-                android:textColor="#ffffff"
-                android:textSize="30sp"
-                android:text=" x 0"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/comida" />
+
+                <TextView
+                    android:id="@+id/txt_puntaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_puntaje"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-         </LinearLayout>
-      </RelativeLayout>
-   </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_baseline_emoji_events_24"
+                    app:tint="#FF9800" />
+
+                <TextView
+                    android:id="@+id/txt_mejor_puntaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_mejor_puntaje"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt_cronometro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_cronometro"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lytBtns"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FF578A34"
+        android:weightSum="1">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnReiniciar"
+                    android:layout_width="133dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_button"
+                    android:onClick="Reset"
+                    android:text="@string/btnReiniciar" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

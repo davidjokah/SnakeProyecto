@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">SnakeProyecto</string>
+    <string name="app_name">SnakeProtect</string>
+    <string name="btnIniciar">Iniciar</string>
+    <string name="txt_puntaje">x 0</string>
+    <string name="txt_mejor_puntaje">x 0</string>
+    <string name="btnReiniciar">Reiniciar</string>
+    <string name="txt_cronometro"></string>
 </resources>

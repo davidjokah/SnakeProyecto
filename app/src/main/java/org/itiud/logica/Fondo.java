@@ -1,4 +1,4 @@
-package org.itiud.snakeproyecto;
+package org.itiud.logica;
 
 import android.graphics.Bitmap;
 

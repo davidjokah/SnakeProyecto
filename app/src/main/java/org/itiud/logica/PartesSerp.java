@@ -1,4 +1,4 @@
-package org.itiud.snakeproyecto;
+package org.itiud.logica;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -40,8 +40,8 @@ public class PartesSerp {
     }
 
     public Rect getCentro() {
-        return new Rect(this.x,this.y, this.x+Interfaz.tamañoFond,
-                this.y+Interfaz.tamañoFond);
+        return new Rect(this.x,this.y, this.x+ Interfaz.tamañoFond,
+                this.y+ Interfaz.tamañoFond);
     }
 
     public void setCentro(Rect centro) {
@@ -49,8 +49,8 @@ public class PartesSerp {
     }
 
     public Rect getAbajo() {
-        return new Rect(this.x,this.y+Interfaz.tamañoFond, this.x+Interfaz.tamañoFond,
-                this.y+Interfaz.tamañoFond+10*ParametrosC.SCREEN_HEIGHT/1920);
+        return new Rect(this.x,this.y+ Interfaz.tamañoFond, this.x+ Interfaz.tamañoFond,
+                this.y+ Interfaz.tamañoFond+10* ParametrosC.SCREEN_HEIGHT/1920);
     }
 
     public void setAbajo(Rect abajo) {
@@ -58,7 +58,7 @@ public class PartesSerp {
     }
 
     public Rect getArriba() {
-        return new Rect(this.x,this.y-10*ParametrosC.SCREEN_HEIGHT/1920, this.x+Interfaz.tamañoFond,
+        return new Rect(this.x,this.y-10*ParametrosC.SCREEN_HEIGHT/1920, this.x+ Interfaz.tamañoFond,
                 this.y);
     }
 
@@ -67,8 +67,8 @@ public class PartesSerp {
     }
 
     public Rect getLadoder() {
-        return new Rect(this.x+Interfaz.tamañoFond,this.y, this.x+Interfaz.tamañoFond+10*ParametrosC.SCREEN_WIDTH/1080,
-                this.y+Interfaz.tamañoFond);
+        return new Rect(this.x+ Interfaz.tamañoFond,this.y, this.x+ Interfaz.tamañoFond+10*ParametrosC.SCREEN_WIDTH/1080,
+                this.y+ Interfaz.tamañoFond);
     }
 
     public void setLadoder(Rect ladoder) {
@@ -77,7 +77,7 @@ public class PartesSerp {
 
     public Rect getLadoizq() {
         return new Rect(this.x-10*ParametrosC.SCREEN_WIDTH/1080,this.y, this.x,
-                this.y+Interfaz.tamañoFond);
+                this.y+ Interfaz.tamañoFond);
     }
 
     public void setLadoizq(Rect ladoizq) {
