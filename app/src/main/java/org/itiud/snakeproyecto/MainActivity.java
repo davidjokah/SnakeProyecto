@@ -19,10 +19,12 @@ import org.itiud.logica.ParametrosC;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int minutos=0,segundos=0;
-    private int puntua=0;
-    private TextView txtCrono,txtPunt;
+    private int minutos = 0, segundos = 0;
+    private int puntua = 0;
+    private TextView txtCrono, txtPunt;
     private Interfaz juego;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,26 +58,24 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
 
-
-
-    private void timer(){
+    private void timer() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-            segundos++;
-            if(segundos>60){
-                minutos++;
-            }
+                segundos++;
+                if (segundos > 60) {
+                    segundos = 0;
+                    minutos++;
+                }
                 txtCrono.setText(minutos + ":" + segundos);
-            timer();
+                timer();
             }
         }, 1000);
     }
 
 
-
-    public void Reset(View view){
-        Intent intent = new Intent(this,Segundo.class);
+    public void Reset(View view) {
+        Intent intent = new Intent(this, Segundo.class);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle("REINICIAR");
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                         startActivity(intent);
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                     }
                 });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

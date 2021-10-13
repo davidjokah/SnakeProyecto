@@ -36,105 +36,105 @@ public class Serp {
         this.tamaño = tamaño;
 
         //Creación de las partes de la serpiente según el tamaño del fondo y las dimensiones de la interfaz.
-        centro_abI = Bitmap.createBitmap(bitm, 0, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        centro_abD = Bitmap.createBitmap(bitm, Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        centro_hor = Bitmap.createBitmap(bitm, 2 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        centro_arrI = Bitmap.createBitmap(bitm, 3 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        centro_arrD = Bitmap.createBitmap(bitm, 4 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        centro_ver = Bitmap.createBitmap(bitm, 5 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        cabeza_abajo = Bitmap.createBitmap(bitm, 6 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        cabeza_izq = Bitmap.createBitmap(bitm, 7 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        cabeza_der = Bitmap.createBitmap(bitm, 8 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        cabeza_arriba = Bitmap.createBitmap(bitm, 9 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        cola_arr = Bitmap.createBitmap(bitm, 10 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        cola_der = Bitmap.createBitmap(bitm, 11 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        cola_izq = Bitmap.createBitmap(bitm, 12 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
-        cola_abaj = Bitmap.createBitmap(bitm, 13 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.centro_abI = Bitmap.createBitmap(bitm, 0, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.centro_abD = Bitmap.createBitmap(bitm, Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.centro_hor = Bitmap.createBitmap(bitm, 2 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.centro_arrI = Bitmap.createBitmap(bitm, 3 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.centro_arrD = Bitmap.createBitmap(bitm, 4 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.centro_ver = Bitmap.createBitmap(bitm, 5 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.cabeza_abajo = Bitmap.createBitmap(bitm, 6 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.cabeza_izq = Bitmap.createBitmap(bitm, 7 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.cabeza_der = Bitmap.createBitmap(bitm, 8 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.cabeza_arriba = Bitmap.createBitmap(bitm, 9 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.cola_arr = Bitmap.createBitmap(bitm, 10 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.cola_der = Bitmap.createBitmap(bitm, 11 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.cola_izq = Bitmap.createBitmap(bitm, 12 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
+        this.cola_abaj = Bitmap.createBitmap(bitm, 13 * Interfaz.tamañoFond, 0, Interfaz.tamañoFond, Interfaz.tamañoFond);
 
         //Creación de las posiciones de la serpiente utilizando las diferentes partes
-        arrayserpiente.add(new PartesSerp(cabeza_der, x, y));
+        this.arrayserpiente.add(new PartesSerp(this.cabeza_der, x, y));
         for (int i = 1; i < tamaño - 1; i++) {
-            arrayserpiente.add(new PartesSerp(centro_hor, arrayserpiente.get(i - 1).getX() - Interfaz.tamañoFond, y));
+            this.arrayserpiente.add(new PartesSerp(this.centro_hor, this.arrayserpiente.get(i - 1).getX() - Interfaz.tamañoFond, y));
         }
-        arrayserpiente.add(new PartesSerp(cola_der, arrayserpiente.get(tamaño - 2).getX() - Interfaz.tamañoFond, y));
-        setMovArr(true);
+        this.arrayserpiente.add(new PartesSerp(this.cola_der, this.arrayserpiente.get(tamaño - 2).getX() - Interfaz.tamañoFond, y));
+        setMovDer(true);
 
     }
 
     public void refrescarMov() {
         for (int i = tamaño - 1; i > 0; i--) {
-            arrayserpiente.get(i).setX(arrayserpiente.get(i - 1).getX());
-            arrayserpiente.get(i).setY(arrayserpiente.get(i - 1).getY());
+            this.arrayserpiente.get(i).setX(this.arrayserpiente.get(i - 1).getX());
+            this.arrayserpiente.get(i).setY(this.arrayserpiente.get(i - 1).getY());
         }
         if (movDer) {
-            arrayserpiente.get(0).setX((arrayserpiente.get(0).getX() + Interfaz.tamañoFond));
-            arrayserpiente.get(0).setMp(cabeza_der);
+            this.arrayserpiente.get(0).setX((this.arrayserpiente.get(0).getX() + Interfaz.tamañoFond));
+            this.arrayserpiente.get(0).setMp(this.cabeza_der);
         }
         if (movIzq) {
-            arrayserpiente.get(0).setX((arrayserpiente.get(0).getX() - Interfaz.tamañoFond));
-            arrayserpiente.get(0).setMp(cabeza_izq);
+            this.arrayserpiente.get(0).setX((this.arrayserpiente.get(0).getX() - Interfaz.tamañoFond));
+            this.arrayserpiente.get(0).setMp(this.cabeza_izq);
         }
         if (movArr) {
-            arrayserpiente.get(0).setY((arrayserpiente.get(0).getY() - Interfaz.tamañoFond));
-            arrayserpiente.get(0).setMp(cabeza_arriba);
+            this.arrayserpiente.get(0).setY((this.arrayserpiente.get(0).getY() - Interfaz.tamañoFond));
+            this.arrayserpiente.get(0).setMp(this.cabeza_arriba);
         }
         if (movAb) {
-            arrayserpiente.get(0).setY((arrayserpiente.get(0).getY() + Interfaz.tamañoFond));
-            arrayserpiente.get(0).setMp(cabeza_abajo);
+            this.arrayserpiente.get(0).setY((this.arrayserpiente.get(0).getY() + Interfaz.tamañoFond));
+            this.arrayserpiente.get(0).setMp(this.cabeza_abajo);
         }
         for (int i = 1; i < tamaño - 1; i++) {
             // Actualizando el movimiento de la serpiente cuando va abajo a la derecha o izquierda.
-            if (arrayserpiente.get(i).getLadoizq().intersect(arrayserpiente.get(i + 1).getCentro())
-                    && arrayserpiente.get(i).getAbajo().intersect(arrayserpiente.get(i - 1).getCentro())
-                    || arrayserpiente.get(i).getLadoizq().intersect(arrayserpiente.get(i - 1).getCentro())
-                    && arrayserpiente.get(i).getAbajo().intersect(arrayserpiente.get(i + 1).getCentro())) {
-                arrayserpiente.get(i).setMp(centro_abI);
-            } else if (arrayserpiente.get(i).getLadoder().intersect(arrayserpiente.get(i + 1).getCentro())
-                    && arrayserpiente.get(i).getAbajo().intersect(arrayserpiente.get(i - 1).getCentro())
-                    || arrayserpiente.get(i).getLadoder().intersect(arrayserpiente.get(i - 1).getCentro())
-                    && arrayserpiente.get(i).getAbajo().intersect(arrayserpiente.get(i + 1).getCentro())) {
-                arrayserpiente.get(i).setMp(centro_abD);
+            if (this.arrayserpiente.get(i).getLadoizq().intersect(this.arrayserpiente.get(i + 1).getCentro())
+                    && this.arrayserpiente.get(i).getAbajo().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    || this.arrayserpiente.get(i).getLadoizq().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    && this.arrayserpiente.get(i).getAbajo().intersect(this.arrayserpiente.get(i + 1).getCentro())) {
+                this.arrayserpiente.get(i).setMp(centro_abI);
+            } else if (this.arrayserpiente.get(i).getLadoder().intersect(this.arrayserpiente.get(i + 1).getCentro())
+                    && this.arrayserpiente.get(i).getAbajo().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    || this.arrayserpiente.get(i).getLadoder().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    && this.arrayserpiente.get(i).getAbajo().intersect(this.arrayserpiente.get(i + 1).getCentro())) {
+                this.arrayserpiente.get(i).setMp(centro_abD);
             }
             //Actualizando el movimiento cuando la serpiente va arriba a la derecha o izquierda.
-            else if (arrayserpiente.get(i).getLadoizq().intersect(arrayserpiente.get(i + 1).getCentro())
-                    && arrayserpiente.get(i).getArriba().intersect(arrayserpiente.get(i - 1).getCentro())
-                    || arrayserpiente.get(i).getLadoizq().intersect(arrayserpiente.get(i - 1).getCentro())
-                    && arrayserpiente.get(i).getArriba().intersect(arrayserpiente.get(i + 1).getCentro())) {
-                arrayserpiente.get(i).setMp(centro_arrI);
-            }else if (arrayserpiente.get(i).getLadoder().intersect(arrayserpiente.get(i + 1).getCentro())
-                    && arrayserpiente.get(i).getArriba().intersect(arrayserpiente.get(i - 1).getCentro())
-                    || arrayserpiente.get(i).getLadoder().intersect(arrayserpiente.get(i - 1).getCentro())
-                    && arrayserpiente.get(i).getArriba().intersect(arrayserpiente.get(i + 1).getCentro())) {
-                arrayserpiente.get(i).setMp(centro_arrD);
+            else if (this.arrayserpiente.get(i).getLadoizq().intersect(this.arrayserpiente.get(i + 1).getCentro())
+                    && this.arrayserpiente.get(i).getArriba().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    || this.arrayserpiente.get(i).getLadoizq().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    && this.arrayserpiente.get(i).getArriba().intersect(this.arrayserpiente.get(i + 1).getCentro())) {
+                this.arrayserpiente.get(i).setMp(this.centro_arrI);
+            }else if (this.arrayserpiente.get(i).getLadoder().intersect(this.arrayserpiente.get(i + 1).getCentro())
+                    && this.arrayserpiente.get(i).getArriba().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    || this.arrayserpiente.get(i).getLadoder().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    && this.arrayserpiente.get(i).getArriba().intersect(this.arrayserpiente.get(i + 1).getCentro())) {
+                this.arrayserpiente.get(i).setMp(this.centro_arrD);
             }
             //Actualizando el movimiento cuando la serpiente va vertical y horizontalmente..
-            else if (arrayserpiente.get(i).getArriba().intersect(arrayserpiente.get(i + 1).getCentro())
-                    && arrayserpiente.get(i).getAbajo().intersect(arrayserpiente.get(i - 1).getCentro())
-                    || arrayserpiente.get(i).getArriba().intersect(arrayserpiente.get(i - 1).getCentro())
-                    && arrayserpiente.get(i).getAbajo().intersect(arrayserpiente.get(i + 1).getCentro())) {
-                arrayserpiente.get(i).setMp(centro_ver);
-            }else if (arrayserpiente.get(i).getLadoizq().intersect(arrayserpiente.get(i + 1).getCentro())
-                    && arrayserpiente.get(i).getLadoder().intersect(arrayserpiente.get(i - 1).getCentro())
-                    || arrayserpiente.get(i).getLadoizq().intersect(arrayserpiente.get(i - 1).getCentro())
-                    && arrayserpiente.get(i).getLadoder().intersect(arrayserpiente.get(i + 1).getCentro())) {
-                arrayserpiente.get(i).setMp(centro_hor);
+            else if (this.arrayserpiente.get(i).getArriba().intersect(this.arrayserpiente.get(i + 1).getCentro())
+                    && this.arrayserpiente.get(i).getAbajo().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    || this.arrayserpiente.get(i).getArriba().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    && this.arrayserpiente.get(i).getAbajo().intersect(this.arrayserpiente.get(i + 1).getCentro())) {
+                this.arrayserpiente.get(i).setMp(this.centro_ver);
+            }else if (this.arrayserpiente.get(i).getLadoizq().intersect(this.arrayserpiente.get(i + 1).getCentro())
+                    && this.arrayserpiente.get(i).getLadoder().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    || this.arrayserpiente.get(i).getLadoizq().intersect(this.arrayserpiente.get(i - 1).getCentro())
+                    && this.arrayserpiente.get(i).getLadoder().intersect(this.arrayserpiente.get(i + 1).getCentro())) {
+                this.arrayserpiente.get(i).setMp(this.centro_hor);
             }
         }
         // Actualizando el movimiento cuando la serpiente se mueve en la parte final.
-        if(arrayserpiente.get(tamaño-1).getLadoder().intersect((arrayserpiente.get(tamaño-2).getCentro()))){
-            arrayserpiente.get(tamaño-1).setMp((cola_der));
-        }else if(arrayserpiente.get(tamaño-1).getLadoizq().intersect((arrayserpiente.get(tamaño-2).getCentro()))){
-            arrayserpiente.get(tamaño-1).setMp((cola_izq));
-        }else if(arrayserpiente.get(tamaño-1).getArriba().intersect((arrayserpiente.get(tamaño-2).getCentro()))){
-            arrayserpiente.get(tamaño-1).setMp((cola_arr));
-        }else if(arrayserpiente.get(tamaño-1).getAbajo().intersect((arrayserpiente.get(tamaño-2).getCentro()))){
-            arrayserpiente.get(tamaño-1).setMp((cola_abaj));
+        if(this.arrayserpiente.get(tamaño-1).getLadoder().intersect((this.arrayserpiente.get(tamaño-2).getCentro()))){
+            this.arrayserpiente.get(tamaño-1).setMp((this.cola_der));
+        }else if(this.arrayserpiente.get(tamaño-1).getLadoizq().intersect((this.arrayserpiente.get(tamaño-2).getCentro()))){
+            this.arrayserpiente.get(tamaño-1).setMp((this.cola_izq));
+        }else if(this.arrayserpiente.get(tamaño-1).getArriba().intersect((this.arrayserpiente.get(tamaño-2).getCentro()))){
+            this.arrayserpiente.get(tamaño-1).setMp((this.cola_arr));
+        }else if(arrayserpiente.get(tamaño-1).getAbajo().intersect((this.arrayserpiente.get(tamaño-2).getCentro()))){
+            this.arrayserpiente.get(tamaño-1).setMp((this.cola_abaj));
         }
     }
 
     public void pintarSerp(Canvas canvas) {
         for (int i = 0; i < tamaño; i++) {
-            canvas.drawBitmap(arrayserpiente.get(i).getMp(), arrayserpiente.get(i).getX(), arrayserpiente.get(i).getY(), null);
+            canvas.drawBitmap(this.arrayserpiente.get(i).getMp(), this.arrayserpiente.get(i).getX(), this.arrayserpiente.get(i).getY(), null);
         }
     }
 

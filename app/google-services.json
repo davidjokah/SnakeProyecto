@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "442367359035",
+    "firebase_url": "https://snakeproyecto-default-rtdb.firebaseio.com",
+    "project_id": "snakeproyecto",
+    "storage_bucket": "snakeproyecto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442367359035:android:9cbf5ace7c5b2cea8dc41e",
+        "android_client_info": {
+          "package_name": "org.itiud.snakeproyecto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442367359035-jrsco30omcpm7cv91qkbqeqrjt8dvgbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBsvLJDGpRIxr7be25FCMsBnmyq-lBe9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442367359035-jrsco30omcpm7cv91qkbqeqrjt8dvgbv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

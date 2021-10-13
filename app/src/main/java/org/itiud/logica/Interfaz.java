@@ -120,10 +120,10 @@ public class Interfaz extends View {
     }
 
     public void verificarBordes(){
-        if (serpi.getArrayserpiente().get(0).getX() < arrayFondo.get(0).getX()
-                || serpi.getArrayserpiente().get(0).getY() < arrayFondo.get(0).getY()
-                || serpi.getArrayserpiente().get(0).getY() + tamañoFond > arrayFondo.get(arrayFondo.size() - 1).getY() + tamañoFond
-                || serpi.getArrayserpiente().get(0).getX() + tamañoFond > arrayFondo.get(arrayFondo.size() - 1).getX() + tamañoFond) {
+        if (this.serpi.getArrayserpiente().get(0).getX() < this.arrayFondo.get(0).getX()
+                || this.serpi.getArrayserpiente().get(0).getY() < this.arrayFondo.get(0).getY()
+                || this.serpi.getArrayserpiente().get(0).getY() + tamañoFond > this.arrayFondo.get(this.arrayFondo.size() - 1).getY() + tamañoFond
+                || this.serpi.getArrayserpiente().get(0).getX() + tamañoFond > this.arrayFondo.get(this.arrayFondo.size() - 1).getX() + tamañoFond) {
             Toast.makeText(this.getContext(), "!No puedes salir del mapa!", Toast.LENGTH_SHORT).show();
             chocar();
         }
@@ -131,7 +131,7 @@ public class Interfaz extends View {
 
     public void verificarComerse(){
         for (int i = 1; i < serpi.getArrayserpiente().size(); i++) {
-            if (serpi.getArrayserpiente().get(0).getCentro().intersect(serpi.getArrayserpiente().get(i).getCentro())) {
+            if (this.serpi.getArrayserpiente().get(0).getArriba().intersect(this.serpi.getArrayserpiente().get(i).getArriba())) {
                 Toast.makeText(this.getContext(), "!No intentes comerte a tí mismo!", Toast.LENGTH_SHORT).show();
                 chocar();
             }
@@ -142,8 +142,8 @@ public class Interfaz extends View {
     public void chocar() {
         vive = false;
         Intent intent = new Intent(this.getContext(), Segundo.class);
-        ((MainActivity) getContext()).finish();
-        getContext().startActivity(intent);
+        //((MainActivity) getContext()).finish();
+        //getContext().startActivity(intent);
     }
 
 
@@ -161,22 +161,22 @@ public class Interfaz extends View {
                         movx = event.getX();
                         movy = event.getY();
                         movimiento = true;
-                        serpi.setMovIzq(true);
+                        this.serpi.setMovIzq(true);
                     } else if (event.getX() - movx > 100 * ParametrosC.SCREEN_WIDTH / 1080 && !serpi.isMovIzq()) {
                         movx = event.getX();
                         movy = event.getY();
                         movimiento = true;
-                        serpi.setMovDer(true);
+                        this.serpi.setMovDer(true);
                     } else if (movy - event.getY() > 100 * ParametrosC.SCREEN_WIDTH / 1080 && !serpi.isMovAb()) {
                         movx = event.getX();
                         movy = event.getY();
                         movimiento = true;
-                        serpi.setMovArr(true);
+                        this.serpi.setMovArr(true);
                     } else if (event.getY() - movy > 100 * ParametrosC.SCREEN_WIDTH / 1080 && !serpi.isMovArr()) {
                         movx = event.getX();
                         movy = event.getY();
                         movimiento = true;
-                        serpi.setMovAb(true);
+                        this.serpi.setMovAb(true);
                     }
                 }
                 break;
@@ -198,40 +198,40 @@ public class Interfaz extends View {
             canvas.drawBitmap(arrayFondo.get(i).getBm(), arrayFondo.get(i).getX(), arrayFondo.get(i).getY(), null);
         }
         if (vive) {
-            serpi.refrescarMov();
+            this.serpi.refrescarMov();
             verificarBordes();
             verificarComerse();
         }
-        serpi.pintarSerp(canvas);
-        manzana.pintarPresa(canvas);
-        if (serpi.getArrayserpiente().get(0).getCentro().intersect((manzana.getCr()))) {
+        this.serpi.pintarSerp(canvas);
+        this.manzana.pintarPresa(canvas);
+        if (this.serpi.getArrayserpiente().get(0).getCentro().intersect((manzana.getCr()))) {
             puntaje+=10;
-            randomPresa();
-            manzana.respawn(arrayFondo.get(randomPresa()[0]).getX(), arrayFondo.get(randomPresa()[1]).getY());
+            int xy[] = randomPresa();
+            this.manzana.respawn(this.arrayFondo.get(xy[0]).getX(), this.arrayFondo.get(xy[1]).getY());
             sonidoCome();
             serpi.crecer();
-
+            Toast.makeText(this.getContext(), "Puntos: "+puntaje, Toast.LENGTH_SHORT).show();
         }
-        hd.postDelayed(r, 100);
+        hd.postDelayed(r, 300);
     }
 
     public int[] randomPresa() {
         int[] xy = new int[2];
         Random r = new Random();
-        xy[0] = r.nextInt(arrayFondo.size() - 1);
-        xy[1] = r.nextInt(arrayFondo.size() - 1);
-        Rect rc = new Rect(arrayFondo.get(xy[0]).getX(), arrayFondo.get(xy[1]).getY(),
-                arrayFondo.get(xy[0]).getX() + tamañoFond, arrayFondo.get(xy[1]).getY() + tamañoFond);
+        xy[0] = r.nextInt(this.arrayFondo.size() - 1);
+        xy[1] = r.nextInt(this.arrayFondo.size() - 1);
+        Rect rc = new Rect(this.arrayFondo.get(xy[0]).getX(), this.arrayFondo.get(xy[1]).getY(),
+                this.arrayFondo.get(xy[0]).getX() + tamañoFond, this.arrayFondo.get(xy[1]).getY() + tamañoFond);
         boolean b = true;
         while (b) {
             b = false;
-            for (int i = 0; i < serpi.getArrayserpiente().size(); i++) {
-                if (rc.intersect(serpi.getArrayserpiente().get(i).getCentro())) {
+            for (int i = 0; i < this.serpi.getArrayserpiente().size(); i++) {
+                if (rc.intersect(this.serpi.getArrayserpiente().get(i).getCentro())) {
                     b = true;
-                    xy[0] = r.nextInt(arrayFondo.size() - 1);
-                    xy[1] = r.nextInt(arrayFondo.size() - 1);
-                    rc = new Rect(arrayFondo.get(xy[0]).getX(), arrayFondo.get(xy[1]).getY(),
-                            arrayFondo.get(xy[0]).getX() + tamañoFond, arrayFondo.get(xy[1]).getY() + tamañoFond);
+                    xy[0] = r.nextInt(this.arrayFondo.size() - 1);
+                    xy[1] = r.nextInt(this.arrayFondo.size() - 1);
+                    rc = new Rect(this.arrayFondo.get(xy[0]).getX(), arrayFondo.get(xy[1]).getY(),
+                            this.arrayFondo.get(xy[0]).getX() + tamañoFond, arrayFondo.get(xy[1]).getY() + tamañoFond);
                 }
             }
         }

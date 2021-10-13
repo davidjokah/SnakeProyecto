@@ -41,7 +41,8 @@ public class Comida {
     }
 
     public Rect getCr() {
-        return new Rect(this.x, this.y, this.x+ Interfaz.tamañoFond, this.y+ Interfaz.tamañoFond);
+        return new Rect(this.x, this.y, this.x+ Interfaz.tamañoFond,
+                this.y+ Interfaz.tamañoFond);
     }
 
     public void setCr(Rect cr) {
